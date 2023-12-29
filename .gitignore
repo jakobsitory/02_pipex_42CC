@@ -1,0 +1,7 @@
+files_in
+files_out
+_input
+*.o
+.vscode/settings.json
+pipex
+libft.a

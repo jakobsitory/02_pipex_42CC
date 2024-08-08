@@ -3,15 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 17:13:45 by jschott           #+#    #+#             */
-/*   Updated: 2023/10/05 15:26:05 by jschott          ###   ########.fr       */
+/*   Updated: 2024/08/08 11:09:29 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pipex.h"
 
+/**
+ * Frees a dynamically allocated array of strings.
+ * 
+ * @param arr The array of strings to be freed.
+ * @return Always returns 1, indicating successful deallocation of the array and its contents.
+ */
 int	free_str_arr(char **arr)
 {
 	int	i;
@@ -23,6 +29,13 @@ int	free_str_arr(char **arr)
 	return (1);
 }
 
+/**
+ * Retrieves the executable path for a command.
+ * 
+ * @param cmd The command for which to find the executable path.
+ * @param env The environment variables array, where the PATH variable can be found.
+ * @return The executable path if found, otherwise NULL.
+ */
 char	*get_exec_path(char *cmd, char **env)
 {
 	char	**path_split;
@@ -52,6 +65,13 @@ char	*get_exec_path(char *cmd, char **env)
 	return (0);
 }
 
+/**
+ * Executes a command with the provided environment variables.
+ * 
+ * @param cmd The command string to be executed.
+ * @param env The environment variables array.
+ * @return -1 if the command cannot be executed, otherwise it does not return.
+ */
 int	exec(char *cmd, char **env)
 {
 	char	**cmd_flags;
